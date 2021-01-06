@@ -1,0 +1,7 @@
+terraform/plan.zip
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*

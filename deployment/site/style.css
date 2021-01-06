@@ -1,0 +1,13 @@
+.div {
+    height: 100vh;
+    width: 20%;
+    float: left;
+}
+#p {
+    position: relative;
+    font-weight: bold;
+    font-size: 24px;
+    color: #d1f2eb;
+    text-align: center;
+    font-family: Tahoma, Geneva, sans-serif;
+}

@@ -1,0 +1,43 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: webapp
+#   labels:
+#     app: webapp
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: webapp
+#   template:
+#     metadata:
+#       labels:
+#         app: webapp
+#     spec:
+#       containers:
+#       - name: webapp
+#         image: webapp
+#         imagePullPolicy: Never
+#         ports:
+#         - containerPort: 80
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: APPNAME
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: APPNAME
+  template:
+    metadata:
+      labels:
+        app: APPNAME
+    spec:
+      containers:
+        - name: APPNAME
+          image: CONTAINER_IMAGE
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
