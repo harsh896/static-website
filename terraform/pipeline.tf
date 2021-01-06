@@ -102,7 +102,7 @@ resource "aws_codebuild_project" "codebuild" {
     git_submodules_config {
       fetch_submodules = false
     }
-    buildspec = "deployment/buildspec.yml"
+    buildspec = ".deploymenttools/buildspec.yml"
     report_build_status = false
     insecure_ssl = false
   }
