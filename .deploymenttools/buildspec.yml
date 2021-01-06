@@ -46,7 +46,7 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - aws eks update-kubeconfig --region $REGION --name $EKS_CLUSTER_NAME
       - cat /root/.kube/config
-      - kubectl version
+      - kubectl describe configmap -n kube-system aws-auth
       # - cat kubernetes/deployment.yml
       # - kubectl apply -f kubernetes/deployment.yml
       # - kubectl get all
