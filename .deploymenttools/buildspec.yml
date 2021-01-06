@@ -13,6 +13,8 @@ phases:
       - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:latest"'@' kubernetes/deployment.yml
       - sed -i 's@APPNAME@'"$APPNAME"'@' kubernetes/deployment.yml
       - export KUBECONFIG=$HOME/.kube/config
+      - echo $PWD
+      - echo $PATH
   pre_build:
     commands:
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
