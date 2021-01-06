@@ -12,7 +12,6 @@ phases:
       - export PATH=$PWD/:$PATH
       - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:latest"'@' kubernetes/deployment.yml
       - sed -i 's@APPNAME@'"$APPNAME"'@' kubernetes/deployment.yml
-      - cat kubernetes/deployment.yml
       - export KUBECONFIG=$HOME/.kube/config
   pre_build:
     commands:
@@ -44,6 +43,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
+      - cat kubernetes/deployment.yml
       - kubectl apply -f kubernetes/deployment.yml
       - printf '[{"name":"eks-deployment","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > build.json
 artifacts:
