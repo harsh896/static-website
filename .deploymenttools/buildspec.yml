@@ -45,10 +45,11 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - aws eks update-kubeconfig --region $REGION --name $EKS_CLUSTER_NAME
-      - kubectl get svc
-      - cat kubernetes/deployment.yml
-      - kubectl apply -f kubernetes/deployment.yml
-      - kubectl get all
+      - cat /root/.kube/config
+      # - kubectl get svc
+      # - cat kubernetes/deployment.yml
+      # - kubectl apply -f kubernetes/deployment.yml
+      # - kubectl get all
       - printf '[{"name":"eks-deployment","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > build.json
 artifacts:
   files: build.json
