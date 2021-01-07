@@ -44,7 +44,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - aws eks update-kubeconfig --region $REGION --name $EKS_CLUSTER_NAME --role-arn arn:aws:iam::828819356211:role/eks-cluster
+      - aws eks update-kubeconfig --region $REGION --name $EKS_CLUSTER_NAME --role-arn arn:aws:sts::828819356211:assumed-role/codeBuildServiceRole/build
       - cat /root/.kube/config
       - kubectl get all
       # - kubectl cluster-info --kubeconfig /root/.kube/config
